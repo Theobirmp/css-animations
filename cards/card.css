@@ -1,0 +1,105 @@
+.card{
+    padding: 8rem 1rem 1rem 1rem;
+    position: relative;
+    overflow: hidden;
+    max-width: 35ch;
+    border-radius: 4px;
+    transition: transform 200ms linear;
+}
+.card-bg-image{
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background-color: red;
+    max-height: 500px;
+}
+.card-content{
+    z-index: 2;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    font-family: 'Roboto Mono', monospace;
+    font-family: 'Creepster', cursive;
+}
+.card-h2{
+    align-self: flex-start;
+    font-size: 1.75rem;
+    color: white;
+    position: relative;
+}
+.card-h2::after{
+    position: absolute;
+    content: '';
+    bottom: -4px;
+    left: 0 ;
+    width: 80%;
+    height: 4px;
+    background-color: #66FF00;
+    
+}
+.card-p{
+    font-size: 1.25rem;
+    color: hsla(0, 100%, 100%, .7);
+}
+.card-button{
+    align-self: flex-start;
+    background: none;
+    outline: none;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+    text-transform: uppercase;
+    background-color: 	#66FF00;
+    padding: .5rem 1rem;
+    border-radius: 4px;
+}
+@media (hover){
+    .card-p{
+        opacity: 0;
+        transform: translateY(140px);
+        transition: transform 500ms linear 800ms,opacity 200ms linear 1000ms ;
+    }
+    .card-button{
+        opacity: 0;
+        transform: translateY(140px);
+        transition: transform 500ms linear 800ms,opacity 200ms linear 1000ms;
+    }
+    .card:hover{
+        transform: scale(1.1);
+    }
+    .card:hover .card-h2::after{
+        transform: scale(1.2);
+    }
+    .card:hover .card-p{
+        transform: translateY(0);
+        opacity: 1;
+    }
+    .card:hover .card-button{
+        transform: translateY(0);
+        opacity: 1;
+    }
+    .card:hover .card-h2{
+        transform:translateY(0);
+    }
+    .card-h2::after{
+        transform: scale(0);
+    transition: transform 500ms linear;
+    transform-origin: left;
+    }
+    .card-h2{
+        transform: translateY(140px);
+        transition: transform 500ms linear 500ms;
+    }
+    .card-button:hover,.card-button:focus{
+        background-color: white;
+    }
+}
+@media(prefers-reduced-motion:reduce){
+    *,*::before,*::after{
+        animation-duration: 0.01ms!important;
+        animation-iteration-count: 1!important;
+        transition-duration: 0.01ms!important;
+        scroll-behavior: auto!important;
+    }
+}

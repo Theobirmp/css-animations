@@ -1,0 +1,191 @@
+.card2 {
+  border-radius: 4px;
+  background-color: lightcoral;
+  max-width: 12rem;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25em;
+  position: relative;
+}
+.card2 .card-content {
+  font-family: sans-serif;
+}
+.card2 .card-content .card-content-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  padding-inline: 1em;
+}
+.card2 .card-content .card-content-image {
+  border-radius: 4px;
+  transition: transform linear 200ms;
+}
+.card2 .card-content .card-content-stream {
+  transition: opacity 0.2s ease-in;
+  opacity: 1;
+  display: flex;
+  justify-content: space-between;
+}
+.card2 .card-content .card-content-stream .card-content-stream-streamers {
+  display: flex;
+}
+.card2 .card-content .card-content-stream .card-content-stream-streamers > img {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+.card2 .card-content .card-content-stream .card-content-stream-streamers > img:nth-child(1) {
+  transform: translateX(50%);
+}
+.card2 .card-content .card-content-stream .card-content-stream-streamers > img:nth-child(2) {
+  transform: translateX(25%);
+  z-index: -1;
+}
+.card2 .back {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+.card2 .back .back-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+  height: 100%;
+}
+.card2 .back .stream-data {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  padding-bottom: 2em;
+}
+.card2 .back .stream-data::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  height: 10%;
+  width: 1px;
+  bottom: 18%;
+  background-color: hsla(255deg, 100%, 100%, 0.6);
+}
+.card2 .back .stream-data .stream-data-viewers {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.card2 .back .stream-data .stream-data-streams {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.card2 .back .see-more {
+  display: block;
+  cursor: pointer;
+  border: none;
+  background-color: lightblue;
+  color: white;
+  padding: 0.325rem 0.7rem;
+  border-radius: 100vmax;
+  font-size: 1.2rem;
+  text-align: center;
+  text-decoration: none;
+}
+.card2 .back .streamers {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  gap: 1em;
+  opacity: 0;
+  transition: opacity linear 200ms;
+}
+.card2 .back .streamers .streamers-solo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-items: center;
+  gap: 0.4rem;
+}
+.card2 .back .streamers .streamers-solo > span {
+  font-size: 0.7rem;
+}
+.card2 .back .streamers img {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+.card2:hover .card-content-image {
+  transform: translateY(-50%) scale(0.7);
+}
+.card2:hover .card-content-name {
+  -webkit-animation: contentname linear 200ms forwards;
+          animation: contentname linear 200ms forwards;
+}
+.card2:hover .card-content-stream {
+  opacity: 0;
+}
+.card2:hover .streamers {
+  opacity: 1;
+}
+.card2:hover .see-more {
+  z-index: 999;
+}
+.card2:hover .streamers-solo {
+  z-index: 999;
+  cursor: pointer;
+}
+
+.streamers-solo:hover {
+  transform: scale(1.2);
+}
+
+.back {
+  opacity: 1;
+}
+
+@-webkit-keyframes contentname {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    transform: translate(27.5%, -700%);
+  }
+  75% {
+    opacity: 0;
+  }
+  100% {
+    transform: translate(20%, -750%);
+    opacity: 1;
+  }
+}
+
+@keyframes contentname {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    transform: translate(27.5%, -700%);
+  }
+  75% {
+    opacity: 0;
+  }
+  100% {
+    transform: translate(20%, -750%);
+    opacity: 1;
+  }
+}
+.front, .back {
+  padding-bottom: 20px;
+}/*# sourceMappingURL=card2.css.map */

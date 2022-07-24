@@ -1,0 +1,13 @@
+/* //reseters for box-sizing and images */
+*,*::before,*::after{
+
+    padding: 0;
+    margin:0 ;
+    box-sizing: border-box;
+}
+img{
+    max-width: 100%;
+    display: block;
+    object-fit: cover;
+    height: auto;
+}

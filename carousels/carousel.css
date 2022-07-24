@@ -1,0 +1,141 @@
+.card-top-layer {
+  position: relative;
+  min-height: 20rem;
+  min-width: 20rem;
+  z-index: 1;
+}
+.card-top-layer .card-bg-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+.card-top-layer .card-middle-layer {
+  width: 100%;
+  height: 100%;
+  background-color: hsla(0deg, 100%, 100%, 0.2);
+  position: relative;
+  opacity: 0;
+  z-index: 2;
+  transform: scale(1, 0);
+  transition: transform linear 300ms, opacity linear 100ms;
+  transform-origin: top;
+}
+.card-top-layer .card-middle-layer .card-bottom-layer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: hsla(0deg, 0%, 0%, 0.7);
+  opacity: 0;
+  z-index: 3;
+  transform: scale(1, 0);
+  transition: transform linear 300ms, opacity linear 100ms;
+  transform-origin: bottom;
+  transition-delay: 500ms;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25em;
+  padding: 1rem;
+  color: white;
+}
+.card-top-layer .card-middle-layer .card-bottom-layer .card-contact-button {
+  border: none;
+  border-radius: 100vmax;
+  padding: 0.25rem 0.75rem;
+  background-color: lightcoral;
+  align-self: center;
+  margin-top: 2rem;
+  color: white;
+  text-decoration: none;
+  font-size: 1.25rem;
+}
+
+.card-top-layer:hover .card-middle-layer {
+  transform: scale(1, 1);
+  opacity: 1;
+}
+.card-top-layer:hover .card-bottom-layer {
+  transform: scale(1, 1);
+  opacity: 1;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+}
+
+.fancy-slide {
+  display: flex;
+  margin: 0 auto;
+  max-width: 1000px;
+}
+.fancy-slide .fancy-slide-right-panel {
+  background-color: hsla(255deg, 100%, 100%, 0.7);
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+}
+.fancy-slide .fancy-slide-right-panel .fancy-h3 {
+  font-size: 2.25rem;
+}
+.fancy-slide .fancy-slide-right-panel .fancy-p {
+  letter-spacing: 0.25px;
+  line-height: 20px;
+}
+.fancy-slide .fancy-slide-right-panel .fancy-button {
+  align-self: center;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  color: lightcoral;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  font-size: 2.25rem;
+}
+.fancy-slide .fancy-slide-right-panel .fancy-button::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: transparent;
+  border: solid 2px lightcoral;
+  top: -10px;
+  right: -10px;
+  transition: right linear 200ms;
+}
+.fancy-slide .fancy-slide-right-panel .fancy-button::before {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: transparent;
+  border: solid 2px lightcoral;
+  bottom: -10px;
+  left: -10px;
+  transition: left linear 200ms;
+}
+.fancy-slide .fancy-slide-right-panel .fancy-button:hover {
+  background-color: lightcoral;
+  color: white;
+}
+.fancy-slide .fancy-slide-right-panel .fancy-button:hover::after {
+  right: 100%;
+  background-color: lightcoral;
+}
+.fancy-slide .fancy-slide-right-panel .fancy-button:hover::before {
+  left: 100%;
+  background-color: lightcoral;
+}
+
+.swiper {
+  max-width: 1400px;
+}
+.swiper .swiper-button-prev {
+  color: lightcoral;
+}
+.swiper .swiper-button-next {
+  color: lightcoral;
+}/*# sourceMappingURL=carousel.css.map */

@@ -1,0 +1,100 @@
+
+/* containers layout */
+.simple-loading{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-basis: 100%;
+}
+.typing-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-basis: 100%;
+}
+/* loading text animations */
+:root{
+    --lineHeight:100px;
+}
+.loading{
+    font-size: 5rem;
+    color: white;
+    position: relative;
+    -webkit-text-stroke: 1px;
+}
+.loading::after{
+    content: attr(data-loading);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 100%;
+    color: lightgreen;
+    border-right: solid 2px lightgreen;
+    animation: text-animation 2s linear infinite;
+    overflow: hidden;
+}
+
+@keyframes text-animation {
+    0%{
+        width: 0%;
+    }
+    100%{
+        width: 100%;
+    }
+}
+
+
+/* loading typer */
+.loading-typing{
+    font-family: 'Roboto Mono', monospace;
+    font-size: 5rem;
+    color: transparent;  
+    position: relative;
+    line-height: var(--lineHeight);
+    max-width: max-content;
+}
+.loading-typing::after{
+    content: attr(data-typing);
+    position: absolute;
+    color: darkslategray;
+    width: 0;
+    height: 100%;
+    top: 0;
+    left: 0;
+    animation: typing steps(var(--it)) 4s 0s 4,blink 1s linear infinite,slide 16s steps(4);
+    overflow: hidden;
+    border-right: solid 1px hsla(255, 100%, 100%, 0.5);
+    color: lightcoral;
+    line-height:var(--lineHeight);
+}
+.typing-container-header{
+    font-size: 6rem;
+    color: white;
+    min-width: max-content;
+    margin-right: 20px;
+    line-height: var(--lineHeight);
+}
+.typing-container-categories{
+    height: var(--lineHeight);
+    overflow: hidden;
+}
+
+@keyframes typing {
+    90%{
+        width: 100%;
+    }
+}
+@keyframes blink {
+    0%{
+        border-right: solid 1px hsla(255, 100%, 100%, 1);
+    }
+    100%{
+        border-right: solid 1px hsla(255, 100%, 100%,0);
+    }
+}
+@keyframes slide {
+    100%{
+        transform: translateY(calc(-1 * var(--lineHeight) * 4));
+    }
+}
