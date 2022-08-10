@@ -1,0 +1,52 @@
+.contact-container{
+    display: flex;
+    justify-content: space-around;
+    width: 1000px;
+}
+.contact-container > .contact-li{
+    color: white;
+    list-style-type: none;
+    text-decoration: none;
+    position: relative;
+}
+.contact-container > .contact-li > .fa{
+    color: white;
+    font-size: 5em;
+    background-color: transparent;
+    color: transparent;
+    -webkit-text-stroke: 2px black;
+}
+.contact-container > .contact-li::after{
+    position: absolute;
+    font-family: fontAwesome;
+    font-size: 5em;
+    /* width: 100%; */
+    overflow: hidden;
+    height: 0px;
+    inset: 0;
+    transition: height linear 600ms;
+    
+}
+.contact-container > .contact-li:hover::after{
+    height: 100%;
+}
+.contact-container > .contact-li:nth-child(1)::after{
+    content: '\f09b';
+    border-bottom: solid 1px #171515; 
+    color: #171515;
+}
+.contact-container > .contact-li:nth-child(2)::after{
+    content: '\f0e1';
+    border-bottom: solid 1px #0072b1; 
+    color: #0072b1;
+}
+.contact-container > .contact-li:nth-child(3)::after{
+    content: '\f09b';
+    border-bottom: solid 1px #0072b1; 
+    color: #171515;
+}
+.contact-container > .contact-li:nth-child(4)::after{
+    content: '\f09b';
+    border-bottom: solid 1px #171515; 
+    color: #171515;
+}

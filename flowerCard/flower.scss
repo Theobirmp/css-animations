@@ -1,0 +1,108 @@
+.card{
+    // background-image: url(./react.jpg);
+    // background-position: bottom;
+    // background-repeat: no-repeat;
+    // background-size: cover;
+    background-color: lightcoral;
+    width: 25rem;
+    height: 25rem;
+    position: relative;
+    z-index: 1;
+    display: grid;
+    place-content: center;
+    .card-part{
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url(./react.jpg);
+        background-position: bottom;
+        background-repeat: no-repeat;
+        background-size: cover;
+        transition: transform 300ms linear;
+        z-index: 3;
+    }
+    // top left
+    .card-part:nth-child(1){
+        clip-path: polygon(0 0, 50% 0, 50% 50%, 0 50%);
+        transform-origin: left;
+    }
+    // top right
+    .card-part:nth-child(2){
+        clip-path: polygon(50% 0, 100% 0, 100% 50%, 50% 50%);
+        transform-origin: right;
+    }
+    //bottom left
+    .card-part:nth-child(3){
+        clip-path: polygon(0 50%, 50% 50%, 50% 100%, 0 100%);
+        transform-origin: left;
+
+    }
+    .card-part:nth-child(4){
+        clip-path: polygon(50% 50%, 100% 50%, 100% 100%, 50% 100%);
+        transform-origin: right;
+
+    }
+}
+.card:hover{
+    .card-part:nth-child(1){
+        transform: rotateZ(-45deg);
+    }
+    .card-part:nth-child(2){
+        transform: rotateZ(45deg);
+    }
+    .card-part:nth-child(3){
+        transform: rotateZ(45deg);
+    }
+    .card-part:nth-child(4){
+        transform: rotateZ(-45deg);
+    }
+}
+.learn-more{
+    position: relative;
+    width: 3rem;
+    height: 3rem;
+    z-index: 2;
+    padding: .25rem .75rem;
+    background-color: black;
+    color: white;
+    min-width: max-content;
+    border-radius: 4px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 1.25rem;
+}
+.learn-more::before,.learn-more::after{
+    content: '';
+    position: absolute;
+    background-color: transparent;
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+    border: solid 1px white;
+}
+.learn-more::before{
+    left:-10px;
+    top:-10px;
+    transition: left 200ms linear;
+}
+.learn-more::after{
+    right: -10px;
+    bottom: -10px;
+    transition: right 200ms linear;
+}
+.learn-more:hover{
+    background-color: white;
+    color: black;
+    &::before{
+        left: calc(7rem + 10px);
+        transform: rotate(180deg);
+        border: solid 1px black;
+    }
+    &::after{
+        right: calc(7rem + 10px);
+        transform: rotate(180deg);
+        border: solid 1px black;
+    }
+}
