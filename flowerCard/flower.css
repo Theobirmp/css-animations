@@ -1,6 +1,12 @@
+.card-container {
+  border: solid 1px red;
+  width: min(100%, 1114px);
+  display: flex;
+}
+
 .card {
   background-color: lightcoral;
-  width: 25rem;
+  width: clamp(5rem, 30%, 25rem);
   height: 25rem;
   position: relative;
   z-index: 1;

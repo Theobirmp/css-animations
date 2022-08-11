@@ -1,10 +1,11 @@
+.card-container{
+    border: solid 1px red;
+    width: min(100%,1114px);
+    display: flex;
+}
 .card{
-    // background-image: url(./react.jpg);
-    // background-position: bottom;
-    // background-repeat: no-repeat;
-    // background-size: cover;
     background-color: lightcoral;
-    width: 25rem;
+    width: clamp(5rem,30%,25rem);
     height: 25rem;
     position: relative;
     z-index: 1;
@@ -105,4 +106,7 @@
         transform: rotate(180deg);
         border: solid 1px black;
     }
+}
+.tabs{
+
 }
