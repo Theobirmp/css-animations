@@ -1,8 +1,11 @@
 .card-container{
-    border: solid 1px red;
     width: min(100%,1114px);
     display: flex;
+    border: 2px solid white;
+    border-radius: 10px;
+    display: flex;
 }
+
 .card{
     background-color: lightcoral;
     width: clamp(5rem,30%,25rem);
@@ -11,6 +14,7 @@
     z-index: 1;
     display: grid;
     place-content: center;
+    border-radius: 10px;
     .card-part{
         position: absolute;
         inset: 0;
@@ -22,6 +26,7 @@
         background-size: cover;
         transition: transform 300ms linear;
         z-index: 3;
+        border-radius: 10px;
     }
     // top left
     .card-part:nth-child(1){
@@ -108,5 +113,161 @@
     }
 }
 .tabs{
-
+    padding: 3rem;
+    .tabs-button-container{
+        display: flex;
+        gap: 1rem;
+        position: relative;
+        z-index: 2;
+        .tabs-button{
+            width: 100px;
+            text-align: center;
+            border: solid 2px white;
+            border-radius: 4px;
+            color: white;
+            z-index: 2;
+            padding: .5rem 1rem;
+            font-size: 1rem;
+            &:hover{
+                cursor: pointer;
+            }
+        }
+        &::after{
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 100%;
+            left: 0;
+            background-color: lighten(darkgreen, $amount: 10);
+            z-index: 1;
+            transition:left 100ms linear;
+        }
+    }
+    .tabs-content{
+        padding:1rem;
+        padding-left: unset;
+        position: relative;
+        z-index: 3;
+        .tabs-content-tab{
+            >h3{
+                font-size: 20px;
+                color: white;
+                font-weight: bold;
+                text-transform: capitalize;
+                letter-spacing: 2px;
+                margin-bottom: .25rem;
+                opacity: .9;
+            }
+            p{
+                font-size: 15px;
+                color: white;
+                letter-spacing: 1px;
+                max-width: 60ch;
+                opacity: .8;
+            }
+        }
+        
+    }
+}
+.tab-1,.tab-2,.tab-3,.tab-4{
+    display: none;
+}
+input[type='radio']{
+    display:none;
+}
+//css only
+//move the after element
+$buttonWidth:calc(100px + 1rem);
+.tabs input:nth-child(1):checked ~ .tabs-button-container::after{
+    left: 0px;
+}
+.tabs input:nth-child(2):checked ~ .tabs-button-container::after{
+    left: $buttonWidth;
+}
+.tabs input:nth-child(3):checked ~ .tabs-button-container::after{
+   
+    left: calc(2 * $buttonWidth);
+}
+.tabs input:nth-child(4):checked ~ .tabs-button-container::after{
+    left: calc(3 * $buttonWidth);
+}
+//show the correct content
+.tabs input:nth-child(1):checked ~ .tabs-button-container ~ .tabs-content .tab-1{
+    display: block;
+}
+.tabs input:nth-child(2):checked ~ .tabs-button-container ~ .tabs-content .tab-2{
+    display: block;
+}
+.tabs input:nth-child(3):checked ~ .tabs-button-container ~ .tabs-content .tab-3{
+    display: block;
+}
+.tabs input:nth-child(4):checked ~ .tabs-button-container ~ .tabs-content .tab-4{
+    display: block;
+}
+.learn-more-mobile{
+    display: none;
+}
+@media (max-width:900px){
+    .card-container{
+        flex-direction: column;
+    }
+    .card{
+        width: 100%;
+        max-height: 300px;
+        pointer-events: none;
+    }
+    .tabs-button-container{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .tabs-button-container::after{
+        display: none;
+    }
+    .tabs-button{
+        position: relative;
+        z-index: 4;
+        color: white;
+    }
+    .tabs input:nth-child(1):checked ~ .tabs-button-container .tabs-button:nth-child(1)::after{
+        content: '';
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        background-color: lighten(darkgreen, $amount: 10);
+        z-index: -1;
+    }
+    .tabs input:nth-child(2):checked ~ .tabs-button-container .tabs-button:nth-child(2)::after{
+        content: '';
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        background-color: lighten(darkgreen, $amount: 10);
+        z-index: -1;
+    }
+    .tabs input:nth-child(3):checked ~ .tabs-button-container .tabs-button:nth-child(3)::after{
+        content: '';
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        background-color: lighten(darkgreen, $amount: 10);
+        z-index: -1;
+    }
+    .tabs input:nth-child(4):checked ~ .tabs-button-container .tabs-button:nth-child(4)::after{
+        content: '';
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        background-color: lighten(darkgreen, $amount: 10);
+        z-index: -1;
+    }
+    
+    .learn-more-mobile{
+        display: block;
+        margin-right: auto;
+        margin-top: 1rem;
+    }
 }
