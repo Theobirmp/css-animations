@@ -1,6 +1,16 @@
-$hamburgerMenuSize:40px;
-$hamburgerMenuMargin:20px; //hald the $hamburgerMenuSize
-$hamburgerMenuSizeLines:57px; //pythagorean theorem
+@use 'sass:math';
+@function pythagorean($side){
+    @return $side * math.sqrt(2);
+}
+@function halve($side){
+    @return math.div($side,2);
+}
+//changing this value we get a bigger or smaller hamburger menu
+$hamburgerMenuSize:100px;
+$hamburgerMenuMargin:halve($hamburgerMenuSize); //hafd the $hamburgerMenuSize
+$hamburgerMenuSizeLines:pythagorean($hamburgerMenuSize); //pythagorean theorem
+
+
 .hamburger{
     // visibility: hidden;
     border: solid 1px red;
@@ -9,7 +19,7 @@ $hamburgerMenuSizeLines:57px; //pythagorean theorem
     aspect-ratio: 1;
     display: block;
     .hamburger-button{
-        margin-top: 25px;
+        margin-top: 50%;
     }
     .hamburger-button,.hamburger-button::before,.hamburger-button::after{
         position: absolute;
@@ -48,7 +58,7 @@ $hamburgerMenuSizeLines:57px; //pythagorean theorem
 
 //page layout 
 .none{
-    // margin-top: 100px;
+    margin-top: 100px;
     // margin-left: 100px;
     visibility: hidden;
 }

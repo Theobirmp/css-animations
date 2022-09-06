@@ -1,31 +1,31 @@
 .hamburger {
   border: solid 1px red;
   position: relative;
-  width: 57px;
+  width: 141.4213562373px;
   aspect-ratio: 1;
   display: block;
 }
 .hamburger .hamburger-button {
-  margin-top: 25px;
+  margin-top: 50%;
 }
 .hamburger .hamburger-button, .hamburger .hamburger-button::before, .hamburger .hamburger-button::after {
   position: absolute;
   top: 0;
   left: 0;
-  width: 57px;
+  width: 141.4213562373px;
   height: 3px;
   border-radius: 4px;
   background-color: black;
 }
 .hamburger .hamburger-button::before {
   content: "";
-  margin-top: -20px;
+  margin-top: -50px;
   transition: all linear 200ms;
   transform-origin: center;
 }
 .hamburger .hamburger-button::after {
   content: "";
-  margin-top: 20px;
+  margin-top: 50px;
   transition: all linear 200ms;
   transform-origin: center;
 }
@@ -34,13 +34,14 @@
   background-color: transparent;
 }
 .burger:checked + .hamburger .hamburger-button::before {
-  transform: translateY(20px) rotateZ(45deg);
+  transform: translateY(50px) rotateZ(45deg);
 }
 .burger:checked + .hamburger .hamburger-button::after {
-  transform: translateY(-20px) rotateZ(-45deg);
+  transform: translateY(-50px) rotateZ(-45deg);
 }
 
 .none {
+  margin-top: 100px;
   visibility: hidden;
 }
 
